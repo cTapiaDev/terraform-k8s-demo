@@ -1,0 +1,48 @@
+# Terraform State and Configuration
+#Ignorar los archivos de estado de Terraform. ¡Contienen datos sensibles!
+*.tfstate
+*.tfstate.backup
+
+#Ignorar los logs de error de Terraform
+crash.log
+crash.*.log
+
+#Ignorar las variables locales que pueden contener secretos
+*.tfvars
+*.tfvars.json
+
+#Ignorar los archivos de "override" que se usan para configuraciones locales
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+#Directorio de trabajo de Terraform
+#Este directorio contiene los plugins y módulos descargados. Se regenera con 'terraform init'.
+.terraform/
+
+#Archivo de bloqueo de versiones de providers. A veces se sube a Git,
+#pero para un proyecto de demo es mejor ignorarlo para mantenerlo simple.
+.terraform.lock.hcl
+Go / Terratest
+#Ignorar el directorio de dependencias si se usa 'vendor'
+test/vendor/
+
+#Ignorar los binarios compilados por Go durante las pruebas
+/test/*.test
+/test/test.exe
+
+#Archivos de Sistema Operativo
+#macOS
+.DS_Store
+
+#Windows
+Thumbs.db
+
+#Archivos de Entorno y Secretos
+#Nunca subir archivos con variables de entorno o secretos
+.env
+
+#Archivos de IDE
+#Visual Studio Code
+.vscode/
