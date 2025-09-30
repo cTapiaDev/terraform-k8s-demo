@@ -1,0 +1,15 @@
+name: PR Pipeline - Validación del Pull Requests
+
+on:
+    push:
+        branches: [ "main" ]
+    pull_request:
+        branches: [ "main" ]
+
+jobs:
+    build-and-test:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Clonar el repo
+              uses: actions/checkout@v3
