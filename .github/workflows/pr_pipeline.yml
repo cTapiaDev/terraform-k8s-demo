@@ -18,3 +18,14 @@ jobs:
         steps:
             - name: Clonar el repo
               uses: actions/checkout@v3
+
+    automerge:
+        needs: build-and-test
+        if: github.event.pull_request.draft == false
+        runs-on: ubuntu-latest
+        steps:
+            - name: Fusionar Pull Request
+              uses: pascalgn/automerge-action@v0.16.2
+              env:
+                GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+                MERGE_METHOD: "squash"
